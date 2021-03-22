@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import ReviewOfficerScene from "./scenes/ReviewOfficerScene";
-import ContactNUPDScene from "./scenes/ContactNUPDScene";
-import MyInformationScene from "./scenes/MyInformationScene";
+import ReviewOfficerScene from "./components/ReviewOfficer/ReviewOfficerScene";
+import ContactNUPDScene from "./components/ContactScreen/ContactNUPDScene";
+import MyInformationScene from "./components/MyInformation/MyInformationScene";
 
 
 const Tab = createBottomTabNavigator();
