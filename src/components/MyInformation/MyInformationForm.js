@@ -2,11 +2,13 @@ import * as React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 import MyButton from "../shared/MyButton";
 import NameForm from "./Forms/NameForm";
+import DOBForm from "./Forms/DOBForm";
 
 export default function MyInformationForm({onExit}) {
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
+  const [dateOfBirth, setDateOfBirth] = React.useState(new Date());
 
   const [currentForm, setCurrentForm] = React.useState(0);
   const [showBackButton, setShowBackButton] = React.useState(false);
@@ -18,6 +20,8 @@ export default function MyInformationForm({onExit}) {
                           firstName={firstName} setFirstName={setFirstName}
                           middleName={middleName} setMiddleName={setMiddleName}
                           lastName={lastName} setLastName={setLastName} />);
+      case 1:
+        return (<DOBForm styles={styles} date={dateOfBirth} setDate={setDateOfBirth}/>);
       default:
         return (<Text>This Form not done</Text>);
     }
