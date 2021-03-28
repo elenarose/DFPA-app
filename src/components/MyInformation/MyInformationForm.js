@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
+import { Content } from 'native-base';
 import MyButton from "../shared/MyButton";
 import NameForm from "./Forms/NameForm";
 import DOBForm from "./Forms/DOBForm";
 
-export default function MyInformationForm({onExit}) {
+export default function MyInformationForm({ navigation }) {
   const [firstName, setFirstName] = React.useState("");
   const [middleName, setMiddleName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
@@ -45,12 +46,12 @@ export default function MyInformationForm({onExit}) {
   }
 
   return (
-    <View style={styles.container}>
+    <Content style={styles.container}>
       {getForm()}
       {getBackButton()}
       <MyButton title="Save and Continue" style={styles.saveButton} onPress={handleContinueButtonPress} />
-      <MyButton title="Exit My Information" style={styles.exitButton} onPress={onExit} />
-    </View>
+      <MyButton title="Exit My Information" style={styles.exitButton} onPress={() => navigation.navigate('My Information')} />
+    </Content>
   );
 }
 

@@ -2,14 +2,14 @@ import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import MyButton from "../shared/MyButton";
 
-export default function BeginScreen({onBegin}) {
+export default function BeginScreen({ navigation }) {
   return (
     <View>
       <Text  style={styles.prompt}>
         Provide information about yourself that will be helpful to first responders.
       </Text>
       <MyButton title="Begin"
-                onPress={onBegin} />
+                onPress={() => navigation.navigate('Form')} />
       <Text style={styles.note}>
         Your information will be kept private and never sold.
       </Text>
