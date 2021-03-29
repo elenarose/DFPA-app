@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+import { Content } from 'native-base';
 import MyButton from "../shared/MyButton";
 
 export default function BeginScreen({ navigation }) {
   return (
-    <View>
+    <Content padder>
       <Text  style={styles.prompt}>
         Provide information about yourself that will be helpful to first responders.
       </Text>
@@ -13,7 +14,7 @@ export default function BeginScreen({ navigation }) {
       <Text style={styles.note}>
         Your information will be kept private and never sold.
       </Text>
-    </View>
+    </Content>
   );
 }
 
