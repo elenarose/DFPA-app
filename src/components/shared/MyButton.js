@@ -12,14 +12,21 @@ export default function MyButton({ onPress, title }) {
 const styles = StyleSheet.create({
    appButtonContainer: {
      elevation: 8,
+     justifyContent: 'center',
+     alignItems: 'center',
+     alignSelf: "center",
      backgroundColor: "#c4c4c4",
-     borderRadius: 10,
-     paddingVertical: 10,
-     paddingHorizontal: 12
+     borderRadius: 4,
+     width: 150,
+     height: 50,
+     textAlign: "center",
+     marginTop: 15,
+     marginHorizontal: 6,
+     marginBottom: 6,
    },
    appButtonText: {
-     fontSize: 18,
-     alignSelf: "center",
-     textTransform: "uppercase"
+     fontSize: 15,
+     width: 100,
+     textAlign: "center"
    }
 });
