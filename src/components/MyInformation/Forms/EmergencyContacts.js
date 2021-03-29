@@ -4,16 +4,18 @@ import MyButton from "../../shared/MyButton";
 import AddEmergencyContact from "./Contacts/AddEmergencyContact";
 import {Text} from "react-native-web";
 
-export default function EmergencyContacts({ emergencyContacts, setEmergencyContacts }) {
+export default function EmergencyContacts({ emergencyContacts, setEmergencyContacts, setShowButtonControls }) {
   const [addingContact, setAddingContact] = React.useState(false);
 
   function handleNewContactPress() {
     setAddingContact(true);
+    setShowButtonControls(false);
   }
 
   function onAddComplete(newContact) {
     setEmergencyContacts([newContact]);
     setAddingContact(false);
+    setShowButtonControls(true);
   }
 
   function renderContacts() {

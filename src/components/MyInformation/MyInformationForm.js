@@ -32,8 +32,10 @@ export default function MyInformationForm({ navigation }) {
 
   const [currentForm, setCurrentForm] = React.useState(0);
   const [showBackButton, setShowBackButton] = React.useState(false);
+  const [showButtonControls, setShowButtonControls] = React.useState(true);
 
   let forms = new Map()
+  const lastForm = 6
   forms.set(0,
             {form: (<NameForm styles={styles}
                                 firstName={firstName} setFirstName={setFirstName}
@@ -66,66 +68,17 @@ export default function MyInformationForm({ navigation }) {
               title: "Enter your medical condition information"})
   forms.set(6,
             {form: (<EmergencyContacts emergencyContacts={emergencyContacts}
-                                       setEmergencyContacts={setEmergencyContacts} />),
+                                       setEmergencyContacts={setEmergencyContacts}
+                                       setShowButtonControls={setShowButtonControls}/>),
               title: "Enter your emergency contacts"})
 
-  function getForm() {
-    switch (currentForm) {
-      case 0 :
-        return (<NameForm styles={styles}
-                          firstName={firstName} setFirstName={setFirstName}
-                          middleName={middleName} setMiddleName={setMiddleName}
-                          lastName={lastName} setLastName={setLastName} />);
-      case 1:
-        return (<DOBForm styles={styles} month={month} setMonth={setMonth}
-                         day={day} setDay={setDay} year={year} setYear={setYear} />);
-      case 2:
-        return (<AddressForm street={street} setStreet={setStreet} apt={apt} setApt={setApt}
-                             city={city} setCity={setCity} state={state} setState={setState}
-                             zip={zip} setZip={setZip} />);
-      case 3:
-        return (<AllergyInfo hasAllergies={hasAllergies} setHasAllergies={setHasAllergies}
-                             allergies={allergies} setAllergies={setAllergies} />);
-      case 4:
-        return (<MedicationInfo hasMedications={hasMedications} setHasMedications={setHasMedications}
-                                medications={medications} setMedications={setMedications}/>);
-      case 5:
-        return (<MedicalInfo hasMedicalCondition={hasMedicalCondition}
-                             setHasMedicalCondition={setHasMedicalCondition}
-                             medicalCondition={medicalCondition}
-                             setMedicalCondition={setMedicalCondition}/>);
-      case 6:
-        return (<EmergencyContacts emergencyContacts={emergencyContacts}
-                                   setEmergencyContacts={setEmergencyContacts} />);
-      default:
-        return (<Text>This Form not done</Text>);
-    }
-  }
-
-  function getText() {
-    switch (currentForm) {
-      case 0 :
-        return "Enter your name";
-      case 1:
-        return "Enter your date of birth";
-      case 2:
-        return "Enter your home address";
-      case 3:
-        return "Enter your allergy information";
-      case 4:
-        return "Enter your medication information";
-      case 5:
-        return "Enter your medical condition information";
-      case 6:
-        return "Enter your emergency contacts";
-      default:
-        return "This Form not done";
-    }
-  }
-
   function handleContinueButtonPress() {
-    setCurrentForm(currentForm + 1);
-    setShowBackButton(true);
+    if (currentForm === lastForm) {
+      navigation.navigate('My Information')
+    } else {
+      setCurrentForm(currentForm + 1);
+      setShowBackButton(true);
+    }
   }
 
   function handleBackButtonPress() {
@@ -140,14 +93,21 @@ export default function MyInformationForm({ navigation }) {
       return <MyButton title="Return to previous form" style={styles.button} onPress={handleBackButtonPress} />;
   }
 
+  function getButtonControls() {
+    if (showButtonControls) {
+      return <Content contentContainerStyle={styles.container}>
+                {getBackButton()}
+                <MyButton title={currentForm === lastForm ? "Complete" : "Save and Continue"}
+                          style={styles.button} onPress={handleContinueButtonPress} />
+              </Content>;
+    }
+  }
+
   return (
     <Content padder>
       <Text style={styles.title}>{forms.get(currentForm).title}</Text>
       {forms.get(currentForm).form}
-      <Content contentContainerStyle={styles.container}>
-        {getBackButton()}
-        <MyButton title="Save and Continue" style={styles.button} onPress={handleContinueButtonPress} />
-      </Content>
+      {getButtonControls()}
     </Content>
   );
 }
