@@ -1,13 +1,12 @@
 import * as React from 'react';
 import {Button, View, Text, StyleSheet} from "react-native";
-import {Input} from "native-base";
+
 
 export default function Call({navigation}) {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Call</Text>
             <Button title= "End Call" style = {styles.roundButton}
-                    onPress={() => navigation.navigate('TrackOfficer')}>Message</Button>
+                    onPress={() => navigation.navigate('TrackOfficer')}>End Call</Button>
         </View>
 
     );

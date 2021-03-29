@@ -14,6 +14,7 @@ export default function ContactNUPDScene() {
             <Stack.Screen name="CallOrMessage" component={CallOrMessage} />
             <Stack.Screen name="Message" component={Message} />
             <Stack.Screen name="Call" component={Call} />
+            <Stack.Screen name="TrackOfficer" component={TrackOfficer} />
         </Stack.Navigator>
     );
 }

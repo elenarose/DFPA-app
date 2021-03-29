@@ -7,6 +7,7 @@ export default function CallOrMessage({navigation}) {
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Button title= "Call" style = {styles.roundButton}
                 onPress={() => navigation.navigate('Call')}>Call</Button>
+
             <Button title= "Message" style = {styles.roundButton}
                     onPress={() => navigation.navigate('Message')}>Message</Button>
         </View>

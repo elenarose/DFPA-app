@@ -6,7 +6,7 @@ export default function TrackOfficer({navigation}) {
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <Text>Track Officer</Text>
             <Button title="Back" style={styles.roundButton}
-                    onPress={() => navigation.navigate('TrackOfficer')}>Message</Button>
+                    onPress={() => navigation.navigate('Message')}>Message</Button>
         </View>
 
     );
