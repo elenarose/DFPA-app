@@ -17,7 +17,9 @@ export default function AllergyInfo({ hasAllergies, setHasAllergies, allergies, 
         <Form>
           <Text>List your allergies:</Text>
           <Textarea onChangeText={setAllergies}
-                  value={allergies}/>
+                    value={allergies}
+                    bordered
+          />
         </Form>
       );
     }
