@@ -7,7 +7,6 @@ export default function Message({navigation}) {
 
     return (
         <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: 'center' }}>
-
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
 
@@ -40,19 +39,13 @@ export default function Message({navigation}) {
                     <TouchableOpacity title="TrackOfficer" style = {styles.rectangleButton}
                                       onPress={() => navigation.navigate('TrackOfficer')}><Text>Track Officer</Text></TouchableOpacity>
 
-                <TouchableOpacity title="Back" style = {styles.rectangleSendRight}
+                    <TouchableOpacity title="Back" style = {styles.rectangleSendRight}
                                   onPress={() => navigation.navigate('ContactNUPD')}><Text>Back To Home</Text></TouchableOpacity>
 
 
 
                 </View>
         </View>
-
-
-
-
-
-
 
     );
 
@@ -63,9 +56,8 @@ export default function Message({navigation}) {
 const styles = StyleSheet.create({
 
     sendLeft: {
-        marginLeft: 280
-    },
-
+            marginLeft: 280
+        },
 
     textBox: {
         borderRadius: 10,

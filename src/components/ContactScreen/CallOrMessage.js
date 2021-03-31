@@ -63,9 +63,9 @@ const styles = StyleSheet.create({
     },
     imageStyle: {
         flex: 1,
-        height: 100,
-        width: 100,
-        marginRight: 40,
+        height: 150,
+        width: 150,
+        marginRight: 35,
         resizeMode: "contain"
 
     }
