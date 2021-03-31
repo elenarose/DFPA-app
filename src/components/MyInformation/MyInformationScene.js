@@ -1,29 +1,19 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import BeginScreen from "./BeginScreen";
+import { StyleSheet } from 'react-native';
 import MyInformationForm from "./MyInformationForm";
+import MyInformationHome from "./MyInformationHome";
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 export default function MyInformationScene() {
-  const [showBeginScreen, setShowBeginScreen] = React.useState(true);
-
-  function handleBeginButtonPress() {
-    setShowBeginScreen(false);
-  }
-
-  function handleExitButtonPress() {
-    setShowBeginScreen(true);
-  }
 
   return (
-    <View style={styles.container}>
-      <Text  style={styles.header}>
-        My Information
-      </Text>
-      {showBeginScreen ?
-       <BeginScreen onBegin={handleBeginButtonPress} style={styles.content}/> :
-       <MyInformationForm style={styles.content} onExit={handleExitButtonPress}/>
-      }
-    </View>
+    <Stack.Navigator style={styles.header}>
+      <Stack.Screen name="My Information" component={MyInformationHome}
+                    initialParams={{ completedForm: false }}/>
+      <Stack.Screen name="Form" component={MyInformationForm}/>
+    </Stack.Navigator>
   );
 }
 
@@ -38,8 +28,5 @@ const styles = StyleSheet.create({
     marginVertical: 50,
     fontSize: 36,
     fontWeight: 'bold'
-  },
-  content: {
-
   }
 })

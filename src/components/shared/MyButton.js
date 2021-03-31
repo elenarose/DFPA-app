@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-export default function MyButton({ onPress, title }) {
+export default function MyButton({ onPress, title, disabled }) {
+  const disabledColor = '#ffffff';
+  const defaultColor = '#c4c4c4'
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+    <TouchableOpacity onPress={onPress}
+                      style={[styles.appButtonContainer, {backgroundColor: disabled ? disabledColor : defaultColor}]}
+                      disabled={disabled}>
       <Text style={styles.appButtonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -12,14 +17,20 @@ export default function MyButton({ onPress, title }) {
 const styles = StyleSheet.create({
    appButtonContainer: {
      elevation: 8,
-     backgroundColor: "#c4c4c4",
-     borderRadius: 10,
-     paddingVertical: 10,
-     paddingHorizontal: 12
+     justifyContent: 'center',
+     alignItems: 'center',
+     alignSelf: "center",
+     borderRadius: 4,
+     width: 150,
+     height: 50,
+     textAlign: "center",
+     marginTop: 15,
+     marginHorizontal: 6,
+     marginBottom: 6,
    },
    appButtonText: {
-     fontSize: 18,
-     alignSelf: "center",
-     textTransform: "uppercase"
+     fontSize: 15,
+     width: 100,
+     textAlign: "center"
    }
 });

@@ -1,20 +1,24 @@
 import * as React from "react";
-import {Text, View} from "react-native";
-import MyTextInput from "../../shared/MyTextInput";
+import { Form, Item, Input, Label } from 'native-base';
 
-export default function NameForm({styles,
-                                   firstName, setFirstName,
-                                   middleName, setMiddleName,
-                                   lastName, setLastName}) {
+export default function NameForm({firstName, setFirstName, middleName, setMiddleName, lastName, setLastName}) {
   return (
-    <View>
-      <Text style={styles.title}>Enter your name</Text>
-      <Text>First Name:</Text>
-      <MyTextInput value={firstName} onChangeText={setFirstName} />
-      <Text>Middle Name:</Text>
-      <MyTextInput value={middleName} onChangeText={setMiddleName} />
-      <Text>Last Name:</Text>
-      <MyTextInput value={lastName} onChangeText={setLastName} />
-    </View>
+    <Form>
+      <Item floatingLabel>
+        <Label>First Name:</Label>
+        <Input onChangeText={setFirstName}
+               value={firstName}/>
+      </Item>
+      <Item floatingLabel>
+        <Label>Middle Name:</Label>
+        <Input onChangeText={setMiddleName}
+               value={middleName}/>
+      </Item>
+      <Item floatingLabel>
+        <Label>Last Name:</Label>
+        <Input onChangeText={setLastName}
+               value={lastName}/>
+      </Item>
+    </Form>
   );
 }
