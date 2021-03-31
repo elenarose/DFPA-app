@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
-export default function MyButton({ onPress, title }) {
+export default function MyButton({ onPress, title, disabled }) {
+  const disabledColor = '#ffffff';
+  const defaultColor = '#c4c4c4'
+
   return (
-    <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+    <TouchableOpacity onPress={onPress}
+                      style={[styles.appButtonContainer, {backgroundColor: disabled ? disabledColor : defaultColor}]}
+                      disabled={disabled}>
       <Text style={styles.appButtonText}>{title}</Text>
     </TouchableOpacity>
   );
@@ -15,7 +20,6 @@ const styles = StyleSheet.create({
      justifyContent: 'center',
      alignItems: 'center',
      alignSelf: "center",
-     backgroundColor: "#c4c4c4",
      borderRadius: 4,
      width: 150,
      height: 50,

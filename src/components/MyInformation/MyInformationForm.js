@@ -74,7 +74,16 @@ export default function MyInformationForm({ navigation }) {
 
   function handleContinueButtonPress() {
     if (currentForm === lastForm) {
-      navigation.navigate('My Information')
+      navigation.navigate('My Information',
+                          {
+                            completedForm: true,
+                            firstName, middleName, lastName,
+                            month, day, year,
+                            street, apt, city, state, zip,
+                            hasAllergies, allergies,
+                            hasMedications, medications,
+                            hasMedicalCondition, medicalCondition
+                          });
     } else {
       setCurrentForm(currentForm + 1);
       setShowBackButton(true);
