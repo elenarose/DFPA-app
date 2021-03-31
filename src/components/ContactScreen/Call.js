@@ -8,7 +8,7 @@ export default function Call({navigation}) {
 
             <View style={styles.containerHeader}>
             <Text style = {styles.header}>NUPD</Text>
-            <Text>Calling...</Text>
+            <Text style = {styles.calling}>Calling...</Text>
             </View>
 
         <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: 'center' }}>
@@ -74,11 +74,11 @@ export default function Call({navigation}) {
 
         </View>
 
-            <View style={styles.container}>
+            <View style={styles.containerHeader}>
                 <TouchableOpacity
                     style={styles.roundButton}
                     onPress={() => navigation.navigate('TrackOfficer')}>
-                    <Text style={styles.appButtonText}>End Call
+                    <Text style={styles.EndCallButton}>End Call
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -90,19 +90,25 @@ export default function Call({navigation}) {
 }
 
 const styles = StyleSheet.create({
+    calling: {
+       marginBottom: 40
+    },
+
     container: {
         marginHorizontal: 50,
         justifyContent: 'flex-start',
         alignItems: 'flex-start'
     },
     containerHeader: {
-        marginHorizontal: 50,
+        marginLeft: 100,
+
         justifyContent: 'center',
         alignItems: 'center'
     },
     header: {
         alignSelf: 'center',
         marginVertical: 50,
+        marginBottom: 0,
         fontSize: 36,
         fontWeight: 'bold'
     },
@@ -122,4 +128,10 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 100,
         backgroundColor: '#c4c4c4',
+    },
+    EndCallButton: {
+        fontSize: 16,
+        alignSelf: "center",
+        textTransform: "uppercase"
+
     }});

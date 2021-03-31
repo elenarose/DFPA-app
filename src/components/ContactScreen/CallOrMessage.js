@@ -1,10 +1,14 @@
 import * as React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 
 export default function CallOrMessage({navigation}) {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={styles.container}>
+            <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: 'center' }}>
+
+            <Image  source={require('./phone-call.png')}
+                    style = {styles.imageStyle}></Image>
 
             <TouchableOpacity
                 style={styles.roundButton}
@@ -13,6 +17,12 @@ export default function CallOrMessage({navigation}) {
                 </Text>
             </TouchableOpacity>
 
+            </View>
+
+            <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: 'center' }}>
+               <Image  source={require('./chat.png')}
+                style = {styles.imageStyle}></Image>
+
             <TouchableOpacity
                 style={styles.roundButton}
                 onPress={() => navigation.navigate('Message')}>
@@ -20,12 +30,20 @@ export default function CallOrMessage({navigation}) {
                 </Text>
             </TouchableOpacity>
 
+            </View>
+
         </View>
 
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginTop: 100,
+        marginHorizontal: 75,
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start'
+    },
     roundButton: {
     marginTop: 20,
         width: 180,
@@ -35,4 +53,20 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 140,
         backgroundColor: '#c4c4c4',
-}});
+},
+    appButtonText: {
+        fontSize: 24,
+        alignSelf: "center",
+        fontWeight: 'bold',
+        textTransform: "uppercase"
+
+    },
+    imageStyle: {
+        flex: 1,
+        height: 100,
+        width: 100,
+        marginRight: 40,
+        resizeMode: "contain"
+
+    }
+});

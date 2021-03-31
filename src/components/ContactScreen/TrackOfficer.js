@@ -4,7 +4,7 @@ import * as React from "react";
 export default function TrackOfficer({navigation}) {
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style = {styles.header}>Track Officer</Text>
+            <Text style = {styles.header}>Track You're Officer:</Text>
 
             <Image
                 source={require('./smallerMap.png')}
@@ -12,8 +12,14 @@ export default function TrackOfficer({navigation}) {
             />
             <Text style = {styles.textFont}>Officer Smith is 5 minutes away.</Text>
 
-            <TouchableOpacity title="Back" style = {styles.roundButton}
-                    onPress={() => navigation.navigate('Message')}><Text>Back</Text></TouchableOpacity>
+            <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: 'center' }}>
+
+            <TouchableOpacity title="Message" style = {styles.messageButton}
+                    onPress={() => navigation.navigate('Message')}><Text>Message NUPD</Text></TouchableOpacity>
+
+            <TouchableOpacity title="Call" style = {styles.messageButton}
+                              onPress={() => navigation.navigate('Call')}><Text>Call NUPD</Text></TouchableOpacity>
+            </View>
 
 
         </View>
@@ -25,13 +31,13 @@ export default function TrackOfficer({navigation}) {
     const styles = StyleSheet.create({
         header: {
             alignSelf: 'center',
-            marginVertical: 50,
+            marginTop: 0,
             fontSize: 36,
             fontWeight: 'bold'
         },
         textFont: {
             alignSelf: 'center',
-            marginVertical: 50,
+            marginBottom: 75,
             fontSize: 24,
             fontWeight: 'bold'
         },
@@ -45,13 +51,13 @@ export default function TrackOfficer({navigation}) {
             height: 430,
             width: 430
         },
-        roundButton: {
-            marginTop: 20,
-            width: 100,
-            height: 100,
+        messageButton: {
+            width: 150,
+            height: 35,
             justifyContent: 'center',
             alignItems: 'center',
-            padding: 10,
-            borderRadius: 100,
             backgroundColor: '#c4c4c4',
+            borderRadius: 10,
+            marginRight: 20,
+            marginLeft: 20
         }});
