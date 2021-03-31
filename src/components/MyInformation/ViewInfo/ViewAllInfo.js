@@ -8,11 +8,6 @@ import MedicalInfo from "./MedicalInfo";
 export default function ViewAllInfo({ route }) {
   const [completed, setCompleted] = React.useState(false);
   const [page, setPage] = React.useState('personal');
-  const pageOptions = ['personal', 'medical'];
-
-  React.useEffect(() => {
-    console.log(route);
-  }, []);
 
   if (!completed) {
     return (
