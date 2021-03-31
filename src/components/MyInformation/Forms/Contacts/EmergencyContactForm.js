@@ -2,14 +2,13 @@ import * as React from "react";
 import { Form, Item, Input, Label } from 'native-base';
 import MyButton from "../../../shared/MyButton";
 
-export default function EmergencyContactForm({onSave, contact, setContact}) {
-  const [firstName, setFirstName] = React.useState(contact.firstName);
-  const [lastName, setLastName] = React.useState(contact.lastName);
-  const [phone, setPhone] = React.useState(contact.phone);
-  const [relationship, setRelationship] = React.useState(contact.relationship);
+export default function EmergencyContactForm({ onSave }) {
+  const [firstName, setFirstName] = React.useState("");
+  const [lastName, setLastName] = React.useState("");
+  const [phone, setPhone] = React.useState("");
+  const [relationship, setRelationship] = React.useState("");
 
   function onPress() {
-    setContact({firstName,lastName,phone,relationship})
     if (onSave) onSave();
   }
 
