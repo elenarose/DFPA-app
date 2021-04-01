@@ -4,7 +4,7 @@ import * as React from "react";
 export default function TrackOfficer({navigation}) {
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style = {styles.header}>Track You're Officer:</Text>
+            <Text style = {styles.header}>Track Your Officer:</Text>
 
             <Image
                 source={require('./smallerMap.png')}

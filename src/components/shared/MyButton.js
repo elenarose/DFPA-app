@@ -3,7 +3,7 @@ import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function MyButton({ onPress, title, disabled }) {
   const disabledColor = '#ffffff';
-  const defaultColor = '#c4c4c4'
+  const defaultColor = '#c4c4c4';
 
   return (
     <TouchableOpacity onPress={onPress}
