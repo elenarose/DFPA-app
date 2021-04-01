@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { StyleSheet } from 'react-native';
-import BeginScreen from "./BeginScreen";
 import MyInformationForm from "./MyInformationForm";
+import MyInformationHome from "./MyInformationHome";
 import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
 export default function MyInformationScene() {
+
   return (
     <Stack.Navigator style={styles.header}>
-      <Stack.Screen name="My Information" component={BeginScreen} />
-      <Stack.Screen name="Form" component={MyInformationForm} />
+      <Stack.Screen name="My Information" component={MyInformationHome}
+                    initialParams={{ completedForm: false }}/>
+      <Stack.Screen name="Form" component={MyInformationForm}/>
     </Stack.Navigator>
   );
 }

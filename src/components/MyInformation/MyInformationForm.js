@@ -28,7 +28,10 @@ export default function MyInformationForm({ navigation }) {
   const [medications, setMedications] = React.useState("");
   const [hasMedicalCondition, setHasMedicalCondition] = React.useState(false);
   const [medicalCondition, setMedicalCondition] = React.useState("");
-  const [emergencyContacts, setEmergencyContacts] = React.useState([]);
+  const [emergencyContactFirstName, setEmergencyContactFirstName] = React.useState("");
+  const [emergencyContactLastName, setEmergencyContactLastName] = React.useState("");
+  const [emergencyContactPhone, setEmergencyContactPhone] = React.useState("");
+  const [emergencyContactRelationship, setEmergencyContactRelationship] = React.useState("");
 
   const [currentForm, setCurrentForm] = React.useState(0);
   const [showBackButton, setShowBackButton] = React.useState(false);
@@ -67,14 +70,21 @@ export default function MyInformationForm({ navigation }) {
                                  setMedicalCondition={setMedicalCondition}/>),
               title: "Enter your medical condition information"})
   forms.set(6,
-            {form: (<EmergencyContacts emergencyContacts={emergencyContacts}
-                                       setEmergencyContacts={setEmergencyContacts}
-                                       setShowButtonControls={setShowButtonControls}/>),
-              title: "Enter your emergency contacts"})
+            {form: (<EmergencyContacts setShowButtonControls={setShowButtonControls}/>),
+              title: "Emergency contacts"})
 
   function handleContinueButtonPress() {
     if (currentForm === lastForm) {
-      navigation.navigate('My Information')
+      navigation.navigate('My Information',
+                          {
+                            completedForm: true,
+                            firstName, middleName, lastName,
+                            month, day, year,
+                            street, apt, city, state, zip,
+                            hasAllergies, allergies,
+                            hasMedications, medications,
+                            hasMedicalCondition, medicalCondition
+                          });
     } else {
       setCurrentForm(currentForm + 1);
       setShowBackButton(true);
@@ -97,7 +107,7 @@ export default function MyInformationForm({ navigation }) {
     if (showButtonControls) {
       return <Content contentContainerStyle={styles.container}>
                 {getBackButton()}
-                <MyButton title={currentForm === lastForm ? "Complete" : "Save and Continue"}
+                <MyButton title={currentForm === lastForm ? "Complete" : "Continue"}
                           style={styles.button} onPress={handleContinueButtonPress} />
               </Content>;
     }

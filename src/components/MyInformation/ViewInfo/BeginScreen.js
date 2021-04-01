@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Text, StyleSheet } from 'react-native';
 import { Content } from 'native-base';
-import MyButton from "../shared/MyButton";
+import MyButton from '../../shared/MyButton';
 
 export default function BeginScreen({ navigation }) {
   return (
@@ -19,21 +19,21 @@ export default function BeginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 120
-  },
-  prompt: {
-    marginVertical: 20,
-    fontSize: 24,
-    textAlign: "center",
-    width: 300
-  },
-  note: {
-    textAlign: 'center',
-    marginVertical: 40,
-    fontSize: 16,
-    width: 250
-  }
+   container: {
+     justifyContent: 'center',
+     alignItems: 'center',
+     paddingTop: 120
+   },
+   prompt: {
+     marginVertical: 20,
+     fontSize: 24,
+     textAlign: "center",
+     width: 300
+   },
+   note: {
+     textAlign: 'center',
+     marginVertical: 40,
+     fontSize: 16,
+     width: 250
+   }
 })
