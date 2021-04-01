@@ -3,7 +3,7 @@ import {Content, Text} from 'native-base';
 import MyButton from "../../shared/MyButton";
 import {StyleSheet} from "react-native";
 import PersonalInfo from "./PersonalInfo";
-import MedicalInfo from "./MedicalInfo";
+import AllMedicalInfo from "./AllMedicalInfo";
 import EmergencyContacts from "./EmergencyContacts";
 
 export default function ViewAllInfo({ route }) {
@@ -33,7 +33,7 @@ export default function ViewAllInfo({ route }) {
           page === 'personal'
           ? <PersonalInfo params={route.params}/>
           : page === 'medical'
-            ? <MedicalInfo params={route.params}/>
+            ? <AllMedicalInfo params={route.params}/>
             : <EmergencyContacts params={route.params} />
         }
       </Content>
