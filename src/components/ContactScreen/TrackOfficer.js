@@ -4,12 +4,7 @@ import * as React from "react";
 export default function TrackOfficer({navigation}) {
     return (
         <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-            <Text style = {styles.header}>Track Your Officer:</Text>
 
-            <Image
-                source={require('./smallerMap.png')}
-                style = {styles.imageStyle}
-            />
             <Text style = {styles.textFont}>Officer Smith is 5 minutes away.</Text>
 
             <View style={{ flexDirection: "row", justifyContent: 'center', alignItems: 'center' }}>
@@ -38,7 +33,7 @@ export default function TrackOfficer({navigation}) {
         textFont: {
             alignSelf: 'center',
             marginBottom: 75,
-            fontSize: 24,
+            fontSize: 27,
             fontWeight: 'bold'
         },
         container: {

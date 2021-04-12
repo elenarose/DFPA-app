@@ -8,7 +8,7 @@ export default function ContactNUPD({navigation}) {
             <TouchableOpacity style = {styles.roundBiggerButton}>
             <TouchableOpacity
                 style={styles.roundButton}
-                onPress={() => navigation.navigate('CallOrMessage')}>
+                onLongPress={() => navigation.navigate('CallOrMessage')}>
                 <Text style={styles.appButtonText}>Press and Hold to
                 </Text>
                 <Text style={styles.header}>Contact NUPD
