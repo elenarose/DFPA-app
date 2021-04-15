@@ -7,33 +7,35 @@ import DOBForm from "../Forms/DOBForm";
 import AddressForm from "../Forms/AddressForm";
 
 export default function PersonalInfo({ params }) {
-  const {
-    firstName, middleName, lastName,
-    month, day, year,
-    street, apt, city, state, zip
-  } = params;
 
   const [editing, setEditing] = React.useState(false);
-
-  function nothing() {
-
-  }
+  const [firstName, setFirstName] = React.useState(params.firstName);
+  const [middleName, setMiddleName] = React.useState(params.middleName);
+  const [lastName, setLastName] = React.useState(params.lastName);
+  const [month, setMonth] = React.useState(params.month);
+  const [day, setDay] = React.useState(params.day);
+  const [year, setYear] = React.useState(params.year);
+  const [street, setStreet] = React.useState(params.street);
+  const [apt, setApt] = React.useState(params.apt);
+  const [city, setCity] = React.useState(params.city);
+  const [state, setState] = React.useState(params.state);
+  const [zip, setZip] = React.useState(params.zip);
 
   if (editing) {
     return (
       <Content padder contentContainerStyle={styles.container}>
         <Text style={styles.label}>Name:</Text>
         <NameForm styles={styles}
-                  firstName={firstName} setFirstName={nothing}
-                  middleName={middleName} setMiddleName={nothing}
-                  lastName={lastName} setLastName={nothing} />
+                  firstName={firstName} setFirstName={setFirstName}
+                  middleName={middleName} setMiddleName={setMiddleName}
+                  lastName={lastName} setLastName={setLastName} />
         <Text style={styles.label}>Date of Birth:</Text>
-        <DOBForm styles={styles} month={month} setMonth={nothing}
-                 day={day} setDay={nothing} year={year} setYear={nothing} />
+        <DOBForm styles={styles} month={month} setMonth={setMonth}
+                 day={day} setDay={setDay} year={year} setYear={setYear} />
         <Text style={styles.label}>Address:</Text>
-        <AddressForm street={street} setStreet={nothing} apt={apt} setApt={nothing}
-                     city={city} setCity={nothing} state={state} setState={nothing}
-                     zip={zip} setZip={nothing} />
+        <AddressForm street={street} setStreet={setStreet} apt={apt} setApt={setApt}
+                     city={city} setCity={setCity} state={state} setState={setState}
+                     zip={zip} setZip={setZip} />
         <MyButton title="Finish Editing" onPress={() => setEditing(false)} />
       </Content>
     );
