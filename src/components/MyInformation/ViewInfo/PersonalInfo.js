@@ -21,6 +21,18 @@ export default function PersonalInfo({ params }) {
   const [state, setState] = React.useState(params.state);
   const [zip, setZip] = React.useState(params.zip);
 
+  function isZipCode(str) {
+    let regexp = /^[0-9]{5}(?:-[0-9]{4})?$/;
+    return regexp.test(str);
+  }
+
+
+  function doneEditing() {
+    if (isZipCode(zip)) {
+      setEditing(false)
+    }
+  }
+
   if (editing) {
     return (
       <Content padder contentContainerStyle={styles.container}>
@@ -36,7 +48,7 @@ export default function PersonalInfo({ params }) {
         <AddressForm street={street} setStreet={setStreet} apt={apt} setApt={setApt}
                      city={city} setCity={setCity} state={state} setState={setState}
                      zip={zip} setZip={setZip} />
-        <MyButton title="Finish Editing" onPress={() => setEditing(false)} />
+        <MyButton title="Finish Editing" onPress={doneEditing} />
       </Content>
     );
   } else {
