@@ -38,22 +38,16 @@ export default function EmergencyContacts(props) {
 
   function getOutput() {
     if (addingContact) {
-      return (<Content>
-        <Text>New Emergency Contact</Text>
-        <EmergencyContactForm onSave={onAddComplete} />
-      </Content>);
+      return <EmergencyContactForm onSave={onAddComplete} />
     } else if (editingContact) {
-      return (<Content>
-        <Text>Edit Emergency Contact</Text>
-        <EditEmergencyContact onSave={onSaveComplete} contact={emergencyContacts[editContact]} />
-      </Content>);
+      return <EditEmergencyContact onSave={onSaveComplete} contact={emergencyContacts[editContact]} />;
     } else {
       return (
         <Content>
           {
-            emergencyContacts.length > 1 ?
+            emergencyContacts.length > 0 ?
             emergencyContacts.map((contact, i) =>
-                                        <View>
+                                        <View key={i}>
                                           <Text style={styles.label}>{i === 0 ? 'Primary Contact:' : i === 1 ? 'Secondary Contacts:' : ''}</Text>
                                           <View style={styles.box}>
                                             <Text

@@ -36,23 +36,17 @@ export default function EmergencyContacts({params}) {
   }
 
   if (addingContact) {
-    return (<Content>
-      <Text>New Emergency Contact</Text>
-      <EmergencyContactForm onSave={onAddComplete} />
-    </Content>);
+    return <EmergencyContactForm onSave={onAddComplete} />;
   } else if (editingContact) {
-    return (<Content>
-      <Text>Edit Emergency Contact</Text>
-      <EditEmergencyContact onSave={onSaveComplete} contact={contacts[editContact]}/>
-    </Content>);
+    return <EditEmergencyContact onSave={onSaveComplete} contact={contacts[editContact]}/>;
   } else {
     return (
       <Content padder contentContainerStyle={styles.container}>
         <Content>
           {
-            contacts.length > 1 ?
+            contacts.length > 0 ?
             contacts.map((contact, i) =>
-                           <View>
+                           <View key={i}>
                              <Text style={styles.label}>{i === 0 ? 'Primary Contact:' : i === 1
                                                                                         ? 'Secondary Contacts:'
                                                                                         : ''}</Text>

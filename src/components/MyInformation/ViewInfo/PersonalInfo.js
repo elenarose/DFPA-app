@@ -26,7 +26,6 @@ export default function PersonalInfo({ params }) {
     return regexp.test(str);
   }
 
-
   function doneEditing() {
     if (isZipCode(zip)) {
       setEditing(false)
