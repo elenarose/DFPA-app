@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Content, Text, View } from 'native-base';
-import {StyleSheet, TouchableOpacity} from "react-native";
+import {Alert, StyleSheet, TouchableOpacity} from "react-native";
 import MyButton from "../../shared/MyButton";
 import EmergencyContactForm from "../Forms/Contacts/EmergencyContactForm";
 import EditEmergencyContact from "../Forms/Contacts/EditEmergencyContact";
@@ -17,6 +17,21 @@ export default function EmergencyContacts({params}) {
   function handleEditContactPress(contactPosition) {
     setEditContact(contactPosition);
     setEditingContact(true);
+  }
+
+  function deleteContact(contactPosition) {
+    setContacts(contacts.slice(0,contactPosition).concat(contacts.slice(contactPosition + 1)));
+  }
+
+  function handleDeleteContactPress(contactPosition) {
+    Alert.alert(
+      'Delete Emergency Contact?',
+      'Are you sure you want to delete ' + emergencyContacts[contactPosition].firstName + "?",
+      [
+        {text: 'No, Don\'t Delete', onPress: () => {}, style: 'cancel'},
+        {text: 'Yes, Delete', onPress: () => deleteContact(contactPosition)},
+      ]
+    );
   }
 
   function handleNewContactPress() {
@@ -51,11 +66,14 @@ export default function EmergencyContacts({params}) {
                                                                                         ? 'Secondary Contacts:'
                                                                                         : ''}</Text>
                              <View style={styles.box}>
-                               <Text
-                                 style={styles.content}>{contact.firstName}</Text>
+                               <Text style={styles.content}>{contact.firstName}</Text>
                                <TouchableOpacity onPress={() => handleEditContactPress(i)}
                                                  style={styles.editButton}>
                                  <Text style={styles.editButtonText}>Edit</Text>
+                               </TouchableOpacity>
+                               <TouchableOpacity onPress={() => handleDeleteContactPress(i)}
+                                                 style={styles.editButton}>
+                                 <Text style={styles.editButtonText}>Delete</Text>
                                </TouchableOpacity>
                              </View>
                            </View>)
@@ -81,7 +99,9 @@ const styles = StyleSheet.create(
     },
     content: {
       fontSize: 20,
-      fontWeight: '200'
+      fontWeight: '200',
+      padding: 5,
+      width: 210
     },
     box: {
       borderColor: 'black',
@@ -93,7 +113,7 @@ const styles = StyleSheet.create(
     },
     editButtonText: {
       backgroundColor: '#c4c4c4',
-      marginLeft: 200,
+      marginRight: 10,
       textAlign: 'center',
       width: 50
     }

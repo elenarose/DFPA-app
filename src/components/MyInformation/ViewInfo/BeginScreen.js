@@ -12,7 +12,7 @@ export default function BeginScreen({ navigation }) {
       <MyButton title="Begin"
                 onPress={() => navigation.navigate('Form')} />
       <Text style={styles.note}>
-        Your information will be kept private and never sold.
+        The information you provide will only leave your phone when it is provided to first responders during an emergency.
       </Text>
     </Content>
   );
