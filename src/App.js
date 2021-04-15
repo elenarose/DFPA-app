@@ -5,7 +5,6 @@ import ReviewOfficerScene from "./components/ReviewOfficer/ReviewOfficerScene";
 import ContactNUPDScene from "./components/ContactScreen/ContactNUPDScene";
 import MyInformationScene from "./components/MyInformation/MyInformationScene";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import {Text} from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
