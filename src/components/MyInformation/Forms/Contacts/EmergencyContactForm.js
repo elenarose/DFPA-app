@@ -9,7 +9,7 @@ export default function EmergencyContactForm({ onSave }) {
   const [relationship, setRelationship] = React.useState("");
 
   function onPress() {
-    if (onSave) onSave();
+    if (onSave) onSave({firstName, lastName, phone, relationship});
   }
 
   return (

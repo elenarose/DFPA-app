@@ -3,14 +3,16 @@ import {Content, View, Text} from 'native-base';
 import MyButton from "../../shared/MyButton";
 import {StyleSheet, TouchableOpacity} from "react-native";
 import EmergencyContactForm from "./Contacts/EmergencyContactForm";
+import EditEmergencyContact from "./Contacts/EditEmergencyContact";
 
 export default function EmergencyContacts(props) {
-  const { setShowButtonControls } = props;
+  const { setShowButtonControls, emergencyContacts, setEmergencyContacts } = props;
   const [addingContact, setAddingContact] = React.useState(false);
   const [editingContact, setEditingContact] = React.useState(false);
-  const [savedAContact, setSavedAContact] = React.useState(false);
+  const [editContact, setEditContact] = React.useState(null);
 
-  function handleEditContactPress() {
+  function handleEditContactPress(contactPosition) {
+    setEditContact(contactPosition);
     setEditingContact(true);
     setShowButtonControls(false);
   }
@@ -20,10 +22,17 @@ export default function EmergencyContacts(props) {
     setShowButtonControls(false);
   }
 
-  function onAddComplete() {
-    setSavedAContact(true);
-    setEditingContact(false);
+  function onAddComplete(newContact) {
+    setEmergencyContacts(emergencyContacts.concat(newContact));
     setAddingContact(false);
+    setShowButtonControls(true);
+  }
+
+  function onSaveComplete(editedContact) {
+    let allContacts = emergencyContacts;
+    allContacts.splice(editContact, 1, editedContact);
+    setEmergencyContacts(allContacts);
+    setEditingContact(false);
     setShowButtonControls(true);
   }
 
@@ -36,26 +45,29 @@ export default function EmergencyContacts(props) {
     } else if (editingContact) {
       return (<Content>
         <Text>Edit Emergency Contact</Text>
-        <EmergencyContactForm onSave={onAddComplete} />
+        <EditEmergencyContact onSave={onSaveComplete} contact={emergencyContacts[editContact]} />
       </Content>);
     } else {
       return (
         <Content>
           {
-            savedAContact ?
-            <View>
-              <Text style={styles.label}>Primary Contact:</Text>
-              <View style={styles.box}>
-                <Text style={styles.content}>My mom</Text>
-                <TouchableOpacity onPress={handleEditContactPress} style={styles.editButton}>
-                  <Text style={styles.editButtonText}>Edit</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            : <></>
+            emergencyContacts.length > 1 ?
+            emergencyContacts.map((contact, i) =>
+                                        <View>
+                                          <Text style={styles.label}>{i === 0 ? 'Primary Contact:' : i === 1 ? 'Secondary Contacts:' : ''}</Text>
+                                          <View style={styles.box}>
+                                            <Text
+                                              style={styles.content}>{contact.firstName}</Text>
+                                            <TouchableOpacity onPress={() => handleEditContactPress(i)}
+                                                              style={styles.editButton}>
+                                              <Text style={styles.editButtonText}>Edit</Text>
+                                            </TouchableOpacity>
+                                          </View>
+                                        </View>)
+          : <></>
           }
           <MyButton
-            title={savedAContact < 1 ? "Add primary contact" : "Add additional contact"}
+            title={emergencyContacts.length === 0 ? "Add primary contact" : "Add additional contact"}
             onPress={handleNewContactPress}/>
         </Content>
       );
