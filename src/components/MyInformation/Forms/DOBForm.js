@@ -3,14 +3,28 @@ import {Form, Item, Picker, Label, Input} from 'native-base';
 
 export default function DOBForm({ month, setMonth, day, setDay, year, setYear }) {
 
+  function getDayOptions() {
+    let options = [];
+    for (let i = 1; i <= 31; i++) {
+      options.push(<Picker.Item label={i} value={i} key={i} />)
+    }
+    return options;
+  }
+
+  function getYearOptions() {
+    let options = [];
+    for (let i = 2021; i >= 1920; i--) {
+      options.push(<Picker.Item label={i} value={i} key={i} />)
+    }
+    return options;
+  }
+
   return (
     <Form>
       <Item picker>
         <Picker
           mode="dropdown"
           placeholder="Select month"
-          placeholderStyle={{ color: "#bfc6ea" }}
-          placeholderIconColor="#007aff"
           selectedValue={month}
           onValueChange={setMonth}
         >
@@ -28,15 +42,21 @@ export default function DOBForm({ month, setMonth, day, setDay, year, setYear })
           <Picker.Item label="December" value={12} />
         </Picker>
       </Item>
-      <Item floatingLabel>
-        <Label>Day:</Label>
-        <Input onChangeText={setDay}
-               value={day}/>
+      <Item picker>
+        <Picker mode="dropdown"
+                placeholder="Select day"
+                selectedValue={day}
+                onValueChange={setDay}>
+          {getDayOptions()}
+        </Picker>
       </Item>
-      <Item floatingLabel>
-        <Label>Year:</Label>
-        <Input onChangeText={setYear}
-               value={year}/>
+      <Item picker>
+        <Picker mode="dropdown"
+                placeholder="Select year"
+                selectedValue={year}
+                onValueChange={setYear}>
+          {getYearOptions()}
+        </Picker>
       </Item>
     </Form>
   );
