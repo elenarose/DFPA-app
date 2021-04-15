@@ -7,29 +7,25 @@ import MedicationInfo from "../Forms/MedicationInfo";
 import MedicalInfo from "../Forms/MedicalInfo";
 
 export default function AllMedicalInfo({ params }) {
-  const {
-    hasAllergies, allergies,
-    hasMedications, medications,
-    hasMedicalCondition, medicalCondition
-  } = params;
-
+  const [hasAllergies, setHasAllergies] = React.useState(params.hasAllergies);
+  const [allergies, setAllergies] = React.useState(params.allergies);
+  const [hasMedications, setHasMedications] = React.useState(params.hasMedications);
+  const [medications, setMedications] = React.useState(params.medications);
+  const [hasMedicalCondition, setHasMedicalCondition] = React.useState(params.hasMedicalCondition);
+  const [medicalCondition, setMedicalCondition] = React.useState(params.medicalCondition);
   const [editing, setEditing] = React.useState(false);
-
-  function nothing() {
-
-  }
 
   if (editing) {
     return (
       <Content>
-        <AllergyInfo hasAllergies={hasAllergies} setHasAllergies={nothing}
-                     allergies={allergies} setAllergies={nothing} />
-        <MedicationInfo hasMedications={hasMedications} setHasMedications={nothing}
-                        medications={medications} setMedications={nothing}/>
+        <AllergyInfo hasAllergies={hasAllergies} setHasAllergies={setHasAllergies}
+                     allergies={allergies} setAllergies={setAllergies} />
+        <MedicationInfo hasMedications={hasMedications} setHasMedications={setHasMedications}
+                        medications={medications} setMedications={setMedications}/>
         <MedicalInfo hasMedicalCondition={hasMedicalCondition}
-                     setHasMedicalCondition={nothing}
+                     setHasMedicalCondition={setHasMedicalCondition}
                      medicalCondition={medicalCondition}
-                     setMedicalCondition={nothing}/>
+                     setMedicalCondition={setMedicalCondition}/>
         <MyButton title="Finish Editing" onPress={() => setEditing(false)} />
       </Content>);
   } else {

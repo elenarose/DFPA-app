@@ -28,10 +28,7 @@ export default function MyInformationForm({ navigation }) {
   const [medications, setMedications] = React.useState("");
   const [hasMedicalCondition, setHasMedicalCondition] = React.useState(false);
   const [medicalCondition, setMedicalCondition] = React.useState("");
-  const [emergencyContactFirstName, setEmergencyContactFirstName] = React.useState("");
-  const [emergencyContactLastName, setEmergencyContactLastName] = React.useState("");
-  const [emergencyContactPhone, setEmergencyContactPhone] = React.useState("");
-  const [emergencyContactRelationship, setEmergencyContactRelationship] = React.useState("");
+  const [emergencyContacts, setEmergencyContacts] = React.useState([]);
 
   const [currentForm, setCurrentForm] = React.useState(0);
   const [showBackButton, setShowBackButton] = React.useState(false);
@@ -70,7 +67,9 @@ export default function MyInformationForm({ navigation }) {
                                  setMedicalCondition={setMedicalCondition}/>),
               title: "Enter your medical condition information"})
   forms.set(6,
-            {form: (<EmergencyContacts setShowButtonControls={setShowButtonControls}/>),
+            {form: (<EmergencyContacts setShowButtonControls={setShowButtonControls}
+                                       emergencyContacts={emergencyContacts}
+                                       setEmergencyContacts={setEmergencyContacts}/>),
               title: "Emergency contacts"})
 
   function handleContinueButtonPress() {
@@ -83,7 +82,8 @@ export default function MyInformationForm({ navigation }) {
                             street, apt, city, state, zip,
                             hasAllergies, allergies,
                             hasMedications, medications,
-                            hasMedicalCondition, medicalCondition
+                            hasMedicalCondition, medicalCondition,
+                            emergencyContacts
                           });
     } else {
       setCurrentForm(currentForm + 1);
