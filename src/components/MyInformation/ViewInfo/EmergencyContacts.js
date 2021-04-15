@@ -72,8 +72,8 @@ export default function EmergencyContacts({params}) {
                                  <Text style={styles.editButtonText}>Edit</Text>
                                </TouchableOpacity>
                                <TouchableOpacity onPress={() => handleDeleteContactPress(i)}
-                                                 style={styles.editButton}>
-                                 <Text style={styles.editButtonText}>Delete</Text>
+                                                 style={styles.deleteButton}>
+                                 <Text style={styles.deleteButtonText}>Delete</Text>
                                </TouchableOpacity>
                              </View>
                            </View>)
@@ -101,7 +101,7 @@ const styles = StyleSheet.create(
       fontSize: 20,
       fontWeight: '200',
       padding: 5,
-      width: 210
+      width: 205
     },
     box: {
       borderColor: 'black',
@@ -116,5 +116,13 @@ const styles = StyleSheet.create(
       marginRight: 10,
       textAlign: 'center',
       width: 50
+    },
+    deleteButton: {
+      alignSelf: 'center',
+    },
+    deleteButtonText: {
+      backgroundColor: '#c4c4c4',
+      textAlign: 'center',
+      width: 60
     }
   })
