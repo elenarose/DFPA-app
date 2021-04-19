@@ -53,8 +53,8 @@ export default function ROLandingPage({navigation}) {
         <ScrollView style={{flex: 1}}>
             <Header searchBar rounded>
                 <Item>
-                    <Icon name="ios-search" />
-                    <Input placeholder="Search for Officer or Scan I.D." />
+                    <Icon name="ios-search"/>
+                    <Input placeholder="Search for Officer or Scan I.D."/>
                     <Icon name="ios-barcode" onPress={() => navigation.navigate('Scan Officer I.D.')}/>
                 </Item>
                 <Button transparent>
@@ -80,8 +80,6 @@ export default function ROLandingPage({navigation}) {
             </View>
 
 
-
-
             {
                 users.map((u, i) => <Card key={i}>
                     <ListItem>
@@ -89,12 +87,15 @@ export default function ROLandingPage({navigation}) {
                         <Text style={styles.text}>
                             {u.name}
                         </Text>
-                        <Right>
-                            <Text style={styles.text}>
-                                {u.rating}
-                            </Text>
+                        <Right style={{alignItems: "center"}}>
+                            <Icon name={'ios-people'} onPress={() => navigation.navigate('Officer Profile')}/>
+                            <Text style={styles.miniText}>View Profile</Text>
                         </Right>
                     </ListItem>
+                    <Card.Divider/>
+                    <Text style={styles.noteText}>
+                        Overall Officer Rating: {u.rating}
+                    </Text>
                     <Card.Divider/>
                     <Text style={styles.noteText}>
                         Distance from you: {u.dist}
@@ -107,31 +108,21 @@ export default function ROLandingPage({navigation}) {
                     </Button>
                 </Card>)
             }
-
-            {/*<Card containerStyle={{padding: 0}} >*/}
-            {/*    {*/}
-            {/*        users.map((u, i) => <ListItem key={i}>*/}
-            {/*            <Text>{u.name}</Text>*/}
-            {/*        </ListItem>)*/}
-            {/*    }*/}
-            {/*</Card>*/}
-
-            {/*<Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>*/}
-            {/*    <Row data={state.tableHead} style={styles.head} textStyle={styles.text_head}/>*/}
-            {/*    <Rows data={state.tableData} style={styles.body} textStyle={styles.text}/>*/}
-            {/*</Table>*/}
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
-    head: { height: 70, backgroundColor: '#7A39C6'},
-    text_head: {margin: 16, fontWeight: 'bold', fontSize: 25,
-        fontFamily: 'Arial', color: '#000'},
+    container: {flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff'},
+    head: {height: 70, backgroundColor: '#7A39C6'},
+    text_head: {
+        margin: 16, fontWeight: 'bold', fontSize: 25,
+        fontFamily: 'Arial', color: '#000'
+    },
     text: {margin: 6, fontWeight: 'bold', fontSize: 20},
     body: {height: 50},
     iconRefresh: {fontWeight: 'bold'},
     noteText: {margin: 6, fontWeight: '300', fontSize: 18},
-    bText: {color: 'white', textAlign:'center', fontSize: 18}
+    bText: {color: 'white', textAlign: 'center', fontSize: 18},
+    miniText: {fontSize: 11, fontWeight: '200'}
 });
