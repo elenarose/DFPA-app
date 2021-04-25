@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/DFPA-app/static/js/app.724d4bb0.chunk.js",
-    "app.js.map": "/DFPA-app/static/js/app.724d4bb0.chunk.js.map",
+    "app.js": "/DFPA-app/static/js/app.fb76e7fa.chunk.js",
+    "app.js.map": "/DFPA-app/static/js/app.fb76e7fa.chunk.js.map",
     "runtime~app.js": "/DFPA-app/static/js/runtime~app.e1bd6494.js",
     "runtime~app.js.map": "/DFPA-app/static/js/runtime~app.e1bd6494.js.map",
-    "static/js/2.97844fba.chunk.js": "/DFPA-app/static/js/2.97844fba.chunk.js",
-    "static/js/2.97844fba.chunk.js.map": "/DFPA-app/static/js/2.97844fba.chunk.js.map",
+    "static/js/2.f64f1cf2.chunk.js": "/DFPA-app/static/js/2.f64f1cf2.chunk.js",
+    "static/js/2.f64f1cf2.chunk.js.map": "/DFPA-app/static/js/2.f64f1cf2.chunk.js.map",
     "fonts/AntDesign.ttf": "/DFPA-app/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/DFPA-app/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/DFPA-app/./fonts/Feather.ttf",
@@ -24,7 +24,7 @@
     "index.html": "/DFPA-app/index.html",
     "manifest.json": "/DFPA-app/manifest.json",
     "serve.json": "/DFPA-app/serve.json",
-    "static/js/2.97844fba.chunk.js.LICENSE.txt": "/DFPA-app/static/js/2.97844fba.chunk.js.LICENSE.txt",
+    "static/js/2.f64f1cf2.chunk.js.LICENSE.txt": "/DFPA-app/static/js/2.f64f1cf2.chunk.js.LICENSE.txt",
     "static/media/bell.png": "/DFPA-app/static/media/bell.cf04af27.png",
     "static/media/chat.png": "/DFPA-app/static/media/chat.1d3c858b.png",
     "static/media/heart.png": "/DFPA-app/static/media/heart.23b5c2c0.png",
@@ -34,7 +34,6 @@
     "static/media/phone-call.png": "/DFPA-app/static/media/phone-call.8f0be3fb.png",
     "static/media/plussignicon.png": "/DFPA-app/static/media/plussignicon.a29e1342.png",
     "static/media/rocket.png": "/DFPA-app/static/media/rocket.d2f3bf41.png",
-    "static/media/smallerMap.png": "/DFPA-app/static/media/smallerMap.920d5a7f.png",
     "static/media/star.png": "/DFPA-app/static/media/star.69c71386.png",
     "static/media/user.png": "/DFPA-app/static/media/user.33e7df09.png",
     "static/media/video-camera.png": "/DFPA-app/static/media/video-camera.5f16696c.png",
@@ -42,7 +41,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.e1bd6494.js",
-    "static/js/2.97844fba.chunk.js",
-    "static/js/app.724d4bb0.chunk.js"
+    "static/js/2.f64f1cf2.chunk.js",
+    "static/js/app.fb76e7fa.chunk.js"
   ]
 }
